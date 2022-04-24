@@ -16,10 +16,19 @@ public class Account {
              Этот метод должен проверять, что сохранённая через конструктор строка соответствует требованиям.
              Если строка удовлетворяет условиям, метод возвращает true, иначе — false.
          */
-    int spaces =name.length()-name.replace(" ", "").length();
-    if (name != null && name.length()>= 3 && name.length()<=19 && !name.startsWith(" ") && !name.endsWith(" ") && spaces==1){
-        return true;
+        if (name == null){
+            return false;
         }
-        return false;
+        if (name.length() < 3 || name.length() > 19){
+            return false;
+        }
+        if(name.startsWith(" ") || name.endsWith(" ")){
+            return false;
+        }
+        int spaces = name.length() - name.replace(" ", "").length();
+        if (spaces != 1){
+            return false;
+        }
+        return true;
     }
 }

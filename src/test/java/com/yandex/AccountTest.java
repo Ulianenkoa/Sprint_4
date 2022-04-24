@@ -43,7 +43,7 @@ import static org.junit.Assert.assertEquals;
     public void nameShouldBeValidated(){
         Account account = new Account(name);
         boolean actual = account.checkNameToEmboss();
-        Allure.addAttachment("Имя: ", name);
+        Allure.addAttachment("Имя: ", name == null  ? "null" : name);
         Allure.addAttachment("Описание: ", discription);
         assertEquals(expected, actual);
 }
